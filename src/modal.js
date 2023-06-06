@@ -1,29 +1,3 @@
-// var linkArray = document.querySelectorAll('.js-open-modal');
-// // var overlay = document.querySelector('js-modal-overlay');
-// var crossArray = document.querySelectorAll('.js-modal-close');
-
-// linkArray.forEach(function (item) {
-//   item.addEventListener('click', function (event) {
-//     event.preventDefault();
-
-//     var modalName = this.getAttrbute('data-modal');
-//     var modal = document.querySelector(
-//       '.js-modal[data-modal="' + modalName + '"]'
-//     );
-
-//     modal.classList.add('is-show');
-//     // overlay.classList.add('is-show');
-//   });
-// });
-
-// crossArray.forEach(function (cross) {
-//   cross.addEventListener('click', function () {
-//     var parent = this.parentNode;
-//     parent.classList.remove('is-show');
-//     // overlay.classList.remove('is-show');
-//   });
-// });
-
 !(function (e) {
   'function' != typeof e.matches &&
     (e.matches =
@@ -71,7 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
             и будем искать модальное окно с таким же атрибутом. */
       var modalId = this.getAttribute('data-modal'),
         modalElem = document.querySelector(
-          '.modal[data-modal="' + modalId + '"]');
+          '.modal[data-modal="' + modalId + '"]'
+        );
 
       /* После того как нашли нужное модальное окно, добавим классы
             подложке и окну чтобы показать их. */
@@ -88,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
       overlay.classList.remove('active');
     });
   }); // end foreach
-  
+
   overlay.addEventListener('click', function () {
     document.querySelector('.modal.active').classList.remove('active');
     this.classList.remove('active');
